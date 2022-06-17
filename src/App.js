@@ -25,7 +25,7 @@ class App extends Component {
     this.setState({
       people: [
         {name: event.target.value, age: 27},
-        {name: 'serLeaf', age: 30},
+        {name: 'Adebayo', age: 30},
         {name: 'Kaka', age: 37}
       ]
     })
@@ -42,7 +42,7 @@ class App extends Component {
         <Suli name= {this.state.people[2].name} age ={this.state.people[2].age} />
 
 
-        <button onClick={this.switchNameHandler.bind(this, )}>SWITCH</button>
+        <button onClick={this.switchNameHandler.bind(this, 'JOEL')}>SWITCH</button>
       </div>
     )   
   }
