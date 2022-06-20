@@ -1,15 +1,18 @@
 .App {
   text-align: center;
-  color: green;
+  color: white;
 }
 button{
-  background-color: green;
+  background-color: inherit;
   color: white;
-  border: none;
+  border: 2px solid white;
   border-radius: 7px;
   padding: 7px;
   margin-top: 15px;
 }
 input{
-  color: red;
+  color: rgb(15, 15, 56);
+}
+body{
+  background-color: rgb(15, 15, 56);
 }
