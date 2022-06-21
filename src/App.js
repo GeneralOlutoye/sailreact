@@ -38,20 +38,40 @@ class App extends Component {
     })
   }
 
+  nameDeleteHandler= (personindex)=>{
+    const osas= this.state.people;
+    osas.splice(personindex, 1)
+    this.setstate({
+      osas: osas
+    })
+  }
+
   render(){ 
     let people= null
+
     if (this.state.showPersons){
-      people= <div>            
-      <Suli name= {this.state.people[0].name} age ={this.state.people[0].age} zeh={this.nameChangeHandler} />
-      <Suli name= {this.state.people[1].name} age ={this.state.people[1].age} caleb={()=>this.switchNameHandler('Ronaldo')} />
-      <Suli name= {this.state.people[2].name} age ={this.state.people[2].age} />
+      people=(
+      <div> 
+        {this.state.people.map((persons, index)=>{
+        return <Suli
+          clicked= {()=>this.nameDeleteHandler(index)}
+          name= {persons.name}
+          age= {persons.age}
+        />
+      })}
       <button onClick={this.switchNameHandler.bind(this, 'Joel')}>SWITCH NAME</button>
-        </div>
+      </div>)
+      // people= <div>
+      // <Suli name= {this.state.people[0].name} age ={this.state.people[0].age} zeh={this.nameChangeHandler} />
+      // <Suli name= {this.state.people[1].name} age ={this.state.people[1].age} caleb={()=>this.switchNameHandler('Ronaldo')} />
+      // <Suli name= {this.state.people[2].name} age ={this.state.people[2].age} />
+      // <button onClick={this.switchNameHandler.bind(this, 'Joel')}>SWITCH NAME</button>
+        // </div>
     }
     return (
       <div className="App">
-        <h1>
-          General Na  React Developer
+        <h1> 
+          General Na React Developer
         </h1>
         <button onClick={this.showPersonsHandler}>SWITCH</button>
         { people
@@ -65,6 +85,7 @@ class App extends Component {
           </div>
           : null
         } */}
+        
       </div>
     )   
   }

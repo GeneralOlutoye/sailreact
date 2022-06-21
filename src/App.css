@@ -12,6 +12,7 @@ button{
 }
 input{
   color: rgb(15, 15, 56);
+  border: none;
 }
 body{
   background-color: rgb(15, 15, 56);
