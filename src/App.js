@@ -6,9 +6,9 @@ class App extends Component {
 
   state= {
     people: [
-      {name: 'Raul', age: 70},
-      {name: 'Figo', age: 30},
-      {name: 'Carlos', age: 50}
+      {id: 'one', name: 'Raul', age: 70},
+      {id: 'two', name: 'Figo', age: 30},
+      {id: 'three', name: 'Carlos', age: 50}
     ],
     showPersons: false
   }
@@ -18,23 +18,28 @@ class App extends Component {
       showPersons: !doesShow
     })
   }
-  switchNameHandler=(serLeaf)=>{
+  switchNameHandler=(newName)=>{
     this.setState({
       people: [
         {name: 'Zidane', age: 27},
-        {name: serLeaf, age: 30},
+        {name: newName, age: 30},
         {name: 'Becham', age: 37}
       ]
     })
   }
 
-  nameChangeHandler=(event)=>{
+  nameChangeHandler=(event, id)=>{
+    const persinIndex= this.state.people.findIndex(p=>{
+      return p.id === id
+    })
+    const persoon= [...this.state.people[persinIndex]]
+    persoon.name= event.target.value
+
+    const abiru= [...this.state.people]
+    abiru[persinIndex]= persoon
+
     this.setState({
-      people: [
-        {name: event.target.value, age: 27},
-        {name: 'Casillas', age: 30},
-        {name: 'Kaka', age: 37}
-      ]
+      abiru:abiru
     })
   }
 
@@ -57,6 +62,8 @@ class App extends Component {
           clicked= {()=>this.nameDeleteHandler(index)}
           name= {persons.name}
           age= {persons.age}
+          key= {persons.id}
+          zeh= {(event)=>this.nameChangeHandler(event, persons.id)}
         />
       })}
       <button onClick={this.switchNameHandler.bind(this, 'Joel')}>SWITCH NAME</button>
