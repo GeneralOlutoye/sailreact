@@ -52,6 +52,10 @@ class App extends Component {
   }
 
   render(){ 
+    const style= {
+      backgroundColor: 'rgb(15, 15, 56)',
+      color: 'white'
+    }
     let people= null
 
     if (this.state.showPersons){
@@ -74,13 +78,26 @@ class App extends Component {
       // <Suli name= {this.state.people[2].name} age ={this.state.people[2].age} />
       // <button onClick={this.switchNameHandler.bind(this, 'Joel')}>SWITCH NAME</button>
         // </div>
+
+        style.backgroundColor= 'red'
+    }
+    let clasess = []
+    if(this.state.people.length <=2){
+      clasess.push('red')
+    }
+    if(this.state.people.length <=1){
+      clasess.push('bold')
+    }
+    if(this.state.people.length <1){
+      clasess.push('wahala')
     }
     return (
       <div className="App">
         <h1> 
           General Na React Developer
         </h1>
-        <button onClick={this.showPersonsHandler}>SWITCH</button>
+        <p className={clasess.join(' ')}>Today's task</p>
+        <button style={style} onClick={this.showPersonsHandler}>SWITCH</button>
         { people
         /* {
           this.state.showPersons ?

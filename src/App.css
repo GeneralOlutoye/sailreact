@@ -17,3 +17,12 @@ input{
 body{
   background-color: rgb(15, 15, 56);
 }
+.red{
+  color: red;
+}
+.bold{
+  font-weight: bold ;
+}
+.wahala{
+  text-decoration: underline;
+}
