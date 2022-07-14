@@ -63,7 +63,7 @@ class App extends Component {
       <div> 
         {this.state.people.map((persons, index)=>{
         return <Suli
-          clicked= {()=>this.nameDeleteHandler(index)}
+          clicked= {(index)=>this.nameDeleteHandler(index)}
           name= {persons.name}
           age= {persons.age}
           key= {persons.id}
