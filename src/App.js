@@ -70,7 +70,7 @@ class App extends Component {
           zeh= {(event)=>this.nameChangeHandler(event, persons.id)}
         />
       })}
-      <button clicked={this.switchNameHandler.bind(this, 'Joel')}>SWITCH NAME</button>
+      <button onClick={this.switchNameHandler.bind(this, 'Joel')}>SWITCH NAME</button>
       </div>)
       // people= <div>
       // <Suli name= {this.state.people[0].name} age ={this.state.people[0].age} zeh={this.nameChangeHandler} />
