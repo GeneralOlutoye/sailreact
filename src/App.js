@@ -63,14 +63,14 @@ class App extends Component {
       <div> 
         {this.state.people.map((persons, index)=>{
         return <Suli
-          clicked= {(index)=>this.nameDeleteHandler(index)}
+          clicked= {this.nameDeleteHandler.bind(this, index)}
           name= {persons.name}
           age= {persons.age}
           key= {persons.id}
           zeh= {(event)=>this.nameChangeHandler(event, persons.id)}
         />
       })}
-      <button onClick={this.switchNameHandler.bind(this, 'Joel')}>SWITCH NAME</button>
+      <button clicked={this.switchNameHandler.bind(this, 'Joel')}>SWITCH NAME</button>
       </div>)
       // people= <div>
       // <Suli name= {this.state.people[0].name} age ={this.state.people[0].age} zeh={this.nameChangeHandler} />
